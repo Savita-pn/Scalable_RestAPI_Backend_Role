@@ -116,6 +116,7 @@ const TaskList = () => {
                   <span className={`priority-badge priority-${task.priority}`}>
                     {task.priority}
                   </span>
+                  <span>Created by: {task.createdBy?.name || 'Unknown'}</span>
                   <span>Created: {new Date(task.createdAt).toLocaleDateString()}</span>
                   {task.dueDate && (
                     <span>Due: {new Date(task.dueDate).toLocaleDateString()}</span>

@@ -178,4 +178,32 @@ router.get('/me', auth, async (req, res) => {
   });
 });
 
+/**
+ * @swagger
+ * /api/v1/auth/users:
+ *   get:
+ *     summary: Get all users (for task assignment)
+ *     tags: [Auth]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Users retrieved successfully
+ */
+router.get('/users', auth, async (req, res) => {
+  try {
+    const users = await User.find({}, 'name email role').sort({ name: 1 });
+    
+    res.status(200).json({
+      success: true,
+      data: users
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Error retrieving users'
+    });
+  }
+});
+
 module.exports = router;

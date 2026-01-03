@@ -23,9 +23,17 @@ const TaskForm = () => {
     if (isEditing) {
       fetchTask();
     }
-    // Note: In a real app, you'd fetch users for assignment
-    // For this demo, we'll skip the user assignment feature
+    fetchUsers();
   }, [id, isEditing]);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await api.get('/auth/users');
+      setUsers(response.data.data || []);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
+  };
 
   const fetchTask = async () => {
     try {
@@ -148,6 +156,23 @@ const TaskForm = () => {
             onChange={handleChange}
             min={new Date().toISOString().split('T')[0]}
           />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="assignedTo">Assign To (Optional)</label>
+          <select
+            id="assignedTo"
+            name="assignedTo"
+            value={formData.assignedTo}
+            onChange={handleChange}
+          >
+            <option value="">Select User</option>
+            {users.map(user => (
+              <option key={user._id} value={user._id}>
+                {user.name} ({user.email})
+              </option>
+            ))}
+          </select>
         </div>
 
         {error && <div className="error">{error}</div>}
