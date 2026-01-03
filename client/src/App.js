@@ -12,14 +12,14 @@ import './App.css';
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
   
-  if (loading) return <div className="loading">Loading...</div>;
+  if (loading) return <div className="loading"><div className="spinner"></div></div>;
   return user ? children : <Navigate to="/login" />;
 };
 
 const PublicRoute = ({ children }) => {
   const { user, loading } = useAuth();
   
-  if (loading) return <div className="loading">Loading...</div>;
+  if (loading) return <div className="loading"><div className="spinner"></div></div>;
   return !user ? children : <Navigate to="/dashboard" />;
 };
 
@@ -27,7 +27,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="App">
+        <div className="App fade-in">
           <Navbar />
           <main className="main-content">
             <Routes>
