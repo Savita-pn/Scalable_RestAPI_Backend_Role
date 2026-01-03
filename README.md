@@ -8,20 +8,25 @@ A full-stack application featuring a secure, scalable backend API with JWT authe
 - ✅ User registration & login with password hashing (bcrypt)
 - ✅ JWT authentication with secure token handling
 - ✅ Role-based access control (user vs admin)
-- ✅ CRUD APIs for task management
+- ✅ CRUD APIs for task management with assignment system
+- ✅ Task assignment feature (assignedTo & createdBy tracking)
 - ✅ API versioning (/api/v1/)
 - ✅ Comprehensive error handling & validation (Joi)
 - ✅ Interactive API documentation (Swagger)
 - ✅ MongoDB database with optimized schemas
 - ✅ Security middleware (helmet, rate limiting, CORS)
+- ✅ User management endpoints for task assignment
 
 ### Frontend (Supportive)
 - ✅ React.js with modern hooks and context
 - ✅ User registration & login interface
 - ✅ Protected dashboard with JWT authentication
 - ✅ Complete CRUD operations for tasks
+- ✅ Task assignment interface with user dropdown
+- ✅ Display of task creator and assignee information
+- ✅ Modern gradient UI with animations
 - ✅ Error/success message handling
-- ✅ Responsive design
+- ✅ Responsive design with mobile support
 
 ### Security & Scalability
 - ✅ Secure JWT token handling
@@ -147,6 +152,12 @@ GET /api/v1/auth/me
 Authorization: Bearer <jwt_token>
 ```
 
+#### Get All Users
+```http
+GET /api/v1/auth/users
+Authorization: Bearer <jwt_token>
+```
+
 ### Task Endpoints
 
 #### Get All Tasks
@@ -172,7 +183,8 @@ Content-Type: application/json
   "description": "Finish the REST API project",
   "status": "pending",
   "priority": "high",
-  "dueDate": "2024-12-31T23:59:59.000Z"
+  "dueDate": "2024-12-31T23:59:59.000Z",
+  "assignedTo": "USER_ID_HERE"
 }
 ```
 
@@ -361,12 +373,6 @@ Error responses:
 
 This project is licensed under the MIT License.
 
-## 📞 Support
 
-For questions or support, please contact:
-- Email: your-email@example.com
-- GitHub Issues: [Create an issue](https://github.com/your-username/scalable-rest-api/issues)
-
----
 
 **Built with ❤️ for the Backend Developer Intern Assignment**
