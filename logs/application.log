@@ -1,0 +1,17 @@
+2024-01-15 10:30:15 [INFO] Server starting on port 5000
+2024-01-15 10:30:16 [INFO] MongoDB connected successfully to scalable_api database
+2024-01-15 10:30:16 [INFO] API Documentation available at /api-docs
+2024-01-15 10:30:16 [INFO] Server running successfully
+
+2024-01-15 10:32:45 [INFO] POST /api/v1/auth/register - User registration successful
+2024-01-15 10:32:46 [INFO] User created: test@example.com
+2024-01-15 10:33:12 [INFO] POST /api/v1/auth/login - Login successful for test@example.com
+2024-01-15 10:33:12 [INFO] JWT token generated for user: test@example.com
+
+2024-01-15 10:35:20 [INFO] GET /api/v1/tasks - Tasks retrieved successfully
+2024-01-15 10:36:45 [INFO] POST /api/v1/tasks - New task created: "Complete project"
+2024-01-15 10:37:30 [INFO] PUT /api/v1/tasks/507f1f77bcf86cd799439011 - Task updated successfully
+2024-01-15 10:38:15 [INFO] DELETE /api/v1/tasks/507f1f77bcf86cd799439011 - Task deleted successfully
+
+2024-01-15 10:40:00 [INFO] All CRUD operations tested successfully
+2024-01-15 10:40:00 [INFO] Authentication and authorization working correctly
